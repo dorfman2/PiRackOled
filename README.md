@@ -1,5 +1,4 @@
 # PiRack OLED Script
-
 This script is based on Adafruit's OLED script, but has been modified to use a 128x64 OLED and a pushbutton.
 It's designed to be used with a raspberry pi server rack.
 
@@ -89,31 +88,72 @@ That's pretty much it! You're now ready to test.
 Create a new file called blinkatest.py with nano or your favorite text editor and put the following in:
 
 ```
-    import board
-    import digitalio
-    import busio
-     
-    print("Hello blinka!")
-     
-    # Try to great a Digital input
-    pin = digitalio.DigitalInOut(board.D4)
-    print("Digital IO ok!")
-     
-    # Try to create an I2C device
-    i2c = busio.I2C(board.SCL, board.SDA)
-    print("I2C ok!")
-     
-    # Try to create an SPI device
-    spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
-    print("SPI ok!")
-     
-    print("done!")
+import board
+import digitalio
+import busio
+    
+print("Hello blinka!")
+    
+# Try to great a Digital input
+pin = digitalio.DigitalInOut(board.D4)
+print("Digital IO ok!")
+    
+# Try to create an I2C device
+i2c = busio.I2C(board.SCL, board.SDA)
+print("I2C ok!")
+    
+# Try to create an SPI device
+spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
+print("SPI ok!")
+    
+print("done!")
 ```
+
 Save it and run at the command line with
 
 `python3 blinkatest.py`
 
 You should see the following, indicating digital i/o, I2C and SPI all worked
+
+
+
+To install the library for the Pi OLED, enter the following into the terminal:
+
+`sudo pip3 install adafruit-circuitpython-ssd1306`
+
+If that complains about pip3 not being installed, then run this first to install it:
+
+`sudo apt-get install python3-pip`
+
+We also need PIL to allow using text with custom fonts. There are several system libraries that PIL relies on, so installing via a package manager is the easiest way to bring in everything:
+
+`sudo apt-get install python3-pil`
+
+## Enable I2C
+
+To enable i2c, you can follow our detailed guide on configuring the Pi with I2C support here.
+
+After you've enabled I2C you will need to shutdown with sudo shutdown -h now
+
+Once the Pi has halted, plug in the PiOLED. Now you can power the Pi back up, and log back in. Run the following command from a terminal prompt to scan/detect the I2C devices
+
+`sudo i2cdetect -y 1`
+
+You should see the following, indicating that address 0x3c (the OLED display) was found
+
+## Verify I2C Device
+
+You can run our stats example, which will query the Pi for details on CPU load, disk space, etc. and print it on the OLED.
+
+Clone the repository to your home folder
+
+`git clone https://github.com/dorfman2/PiRackOled.git`
+
+And enter it.
+
+`cd PiRackOled/`
+
+Run sudo python3 stats.py and you should see something.
 
 ## Running Stats on Boot
 
@@ -130,6 +170,5 @@ on its own line right before exit 0
 Then save and exit. Reboot to verify that the screen comes up on boot!
 
 ## Useful Links
-
 https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
 https://www.thingiverse.com/thing:3362054
