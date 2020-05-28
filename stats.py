@@ -1,5 +1,6 @@
-# Copyright (c) 2017 Adafruit Industries
-# Author: Tony DiCola & James DeVito
+# Original Copyright (c) 2017 Adafruit Industries
+# Edited 5/28/2020
+# Author: Tony DiCola & James DeVito & Jeff Dorfman
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -18,11 +19,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-
-
-# This example is for use on (Linux) computers that are using CPython with
-# Adafruit Blinka to support CircuitPython libraries. CircuitPython does
-# not support PIL/pillow (python imaging library)!
 
 import time
 import subprocess
