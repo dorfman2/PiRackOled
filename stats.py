@@ -1,6 +1,5 @@
-# Original Copyright (c) 2017 Adafruit Industries
-# Edited 5/28/2020
-# Author: Tony DiCola & James DeVito & Jeff Dorfman
+# Copyright (c) 2017 Adafruit Industries
+# Author: Tony DiCola & James DeVito
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,6 +18,11 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+
+
+# This example is for use on (Linux) computers that are using CPython with
+# Adafruit Blinka to support CircuitPython libraries. CircuitPython does
+# not support PIL/pillow (python imaging library)!
 
 import time
 import subprocess
@@ -98,9 +102,9 @@ while True:
         IP = subprocess.check_output(cmd, shell=True).decode("utf-8")
         cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
         CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
-        cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%s MB  %.2f%%\", $3,$2,$3*100/$2 }'"
+        cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%s MB %.2f%%\", $3,$2,$3*100/$2 }'"
         MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
-        cmd = 'df -h | awk \'$NF=="/"{printf "Disk: %d/%d GB  %s", $3,$2,$5}\''
+        cmd = 'df -h | awk \'$NF=="/"{printf "Disk: %d/%d GB %s", $3,$2,$5}\''
         Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
 
         # Write four lines of text.
