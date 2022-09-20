@@ -80,6 +80,10 @@ Run the following command to install adafruit_blinka
 
 `pip3 install adafruit-blinka`
 
+To install the library for the Pi OLED, enter the following into the terminal:
+
+`sudo pip3 install adafruit-circuitpython-ssd1306`
+
 The computer will install a few different libraries such as adafruit-pureio (our ioctl-only i2c library), spidev (for SPI interfacing), Adafruit-GPIO (for detecting your board) and of course adafruit-blinka
 
 That's pretty much it! You're now ready to test.
