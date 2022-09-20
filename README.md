@@ -38,7 +38,8 @@ If above doesn't work try
 
 ## Enable I2C and SPI
 
-A vast number of our CircuitPython drivers use I2C and SPI for interfacing so you'll want to get those enabled.
+Tutorial on how to turn I2C & SPI on.
+https://www.makeuseof.com/tag/enable-spi-i2c-raspberry-pi/
 
 You only have to do this once per Raspberry Pi but by default both interfaces are disabled!
 
