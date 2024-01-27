@@ -74,11 +74,11 @@ Now you're ready to install all the python support
 
 Run the following command to install the Raspberry PI GPIO library:
 
-`pip3 install RPI.GPIO`
+`sudo pip3 install RPI.GPIO`
 
 Run the following command to install adafruit_blinka
 
-`pip3 install adafruit-blinka`
+`sudo pip3 install adafruit-blinka`
 
 To install the library for the Pi OLED, enter the following into the terminal:
 
